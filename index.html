@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Page title -->
+  <title>Francisco Igor - GitHub Projects</title>
+  <meta name="keywords" content="GitHub pages, Francisco Igor, Web applications, HTML5, VueJS, AngularJS"/>
+  <meta name="description" content="GitHub page of Francisco Igor"/>
+
+  <!-- Facebook OpenGraph  Social media attributes -->
+  <meta property="og:title" content="Francisco Igor - GitHub Projects"/>
+  <meta property="og:description" content="GitHub page of Francisco Igor"/>
+  <meta property="og:site_name" content="Francisco Igor - GitHub Projects"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://fraigo.github.io/"/>
+  <link rel="canonical" href="https://fraigo.github.io/" />
+
+  <!-- Facebook OpenGraph  Social media image link url and size (must be http, not https) -->
+  <meta property="og:image" content="http://fraigo.github.io/images/github.png"/>
+  <meta property="og:image:width" content="256"/>
+  <meta property="og:image:height" content="256"/>
+  <meta property="og:locale" content="en_US" />
+      
+  <!-- Fav Icon / App Icon -->
+  <link rel="shortcut icon" href="images/github.png"/>
+  <link rel="icon" type="image/png" href="images/github.png" sizes="256x256"/>
+  <link rel="apple-touch-icon" sizes="images/github.png" href="images/github.png"/>
+
+
+  <script type="application/ld+json">
+  {"name":"Francisco Igor","description":"GitHub page of Francisco Igor","author":"Francisco Igor","@type":"WebSite","url":"https://fraigo.github.io/","image":null,"publisher":null,"headline":"Francisco Igor Website","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+  <link rel="stylesheet" href="css/style.css" >
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app" style="display:none">
+    <v-app>
+      <v-content>
+        <v-container >
+          <v-toolbar fixed>
+            <a href="https://github.com/fraigo?tab=repositories" target="_blank" >
+              <img src="images/github.png" height="48">
+            </a>
+            <v-toolbar-title style="line-height:1.2em">
+              Francisco Igor
+              <br>
+              <small>GitHub Projects</small>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items >
+              <v-btn flat @click="hash='featured'; languageFilter=null">Featured<br>Projects</v-btn>
+              <v-btn flat @click="hash='personal'; languageFilter=null">Personal<br>Projects</v-btn>
+              <v-btn flat @click="hash='forked'; languageFilter=null">Forked<br>Projects</v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-layout row wrap>
+            <v-chip small 
+            color="white"
+            :outline="languageFilter!=null"
+            @click="languageFilter=null"
+             >All languages</v-chip>
+            <v-chip small 
+            color="white"
+            v-for="(lang,index) in languages"
+            v-if="languageSection[lang][hash]"
+            :outline="languageFilter!=lang"
+            @click="languageFilter=lang"
+             >{{lang}}</v-chip>
+          </v-layout>
+          <v-layout row wrap v-if="hash=='featured'">
+            <gitcard
+            v-for="(repo,index) in repos"
+            v-if="languageFilter==null || languageFilter==repo.language"
+            :key="index"
+            :repo="repo"
+            >
+            </gitcard>
+          </v-layout>
+          <v-layout row wrap  v-if="hash=='personal'">
+              <gitcard
+              v-for="(repo,index) in allRepos"
+              v-if="languageFilter==null || languageFilter==repo.language"
+              :key="index"
+              :repo="repo"
+              >
+              </gitcard>
+            </v-layout>
+          <v-layout row wrap  v-if="hash=='forked'">
+              <gitcard
+              v-for="(repo,index) in forked"
+              v-if="languageFilter==null || languageFilter==repo.language"
+              :key="index"
+              :repo="repo"
+              >
+              </gitcard>
+            </v-layout>
+          </v-container>
+      </v-content>
+    </v-app>
+  </div>
+ 
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>  
+  <script src="js/gitcard.js"></script>
+  <script src="js/config.js"></script>
+  <script>
+    var app=new Vue({ 
+      el: '#app' ,
+      data:{
+        repos:[],
+        forked:[],
+        allRepos:[],
+        languages:[],
+        languageSection:{},
+        languageFilter:null,
+        hash:'featured',
+        user:myUser
+      },
+      created: function(){
+        document.getElementById("app").style.display='';
+        this.$http.get('https://api.github.com/users/'+myUser+'/repos?sort=updated&per_page=100').then(function(response) {
+          var tmpRepos=response.data;
+          this.allRepos=[];
+          var languageCount={};
+          var languageSection={};
+          for(var index in response.data){
+            var repo=JSON.parse(JSON.stringify(response.data[index]));
+            var lang=repo.language?repo.language:"Not detected";
+            repo.language=lang;
+            if (!languageCount[lang]){
+              languageCount[lang]=0;
+              languageSection[lang]={};
+            }
+            languageCount[lang]++;
+            if (myRepos[repo.name]){
+              repo.image=myRepos[repo.name].image;
+              this.repos.push(repo);
+              languageSection[lang]["featured"]=true;
+            }
+            if (!repo.fork){
+              this.allRepos.push(repo);
+              languageSection[lang]["personal"]=true;
+            }else{
+              this.forked.push(repo);
+              languageSection[lang]["forked"]=true;
+            }
+          }
+          this.languages=Object.keys(languageCount);
+          this.languages.sort(function(a,b){
+            if (languageCount[a]>languageCount[b]){
+              return -1;
+            }
+            if (languageCount[a]<languageCount[b]){
+              return 1;
+            }
+            return 0;
+          });
+          this.languageSection=languageSection;
+        })
+      },
+      methods: {
+      }
+    })
+    window.onhashchange=function(ev){
+      var hash=document.location.hash;
+      console.log(hash);
+    }
+  </script>
+</body>
+</html>

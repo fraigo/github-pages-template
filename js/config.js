@@ -1,22 +1,13 @@
-var myUser = "fraigo";
+var hostName=document.location.host;
+var hostParts=hostName.split(".");
+var myUser = "github";
+if (hostParts[1]=="github" || hostParts[2]=="io"){
+    myUser = hostParts[0];
+}
 var myRepos = 
 {
-    "vuetify-cordova" : {
-        image:"images/vuetify-cordova.jpg"
+    hostName : {
+        image:"images/github.png.jpg"
     },
-    "vuetify-template" : {
-        image:"images/vuetify-template.jpg"
-    },
-    "text-to-json" : {
-        image:"images/text-to-json.jpg"
-    },
-    "meta-tags-generator" : {
-        image:"images/meta-tags-generator.jpg"
-    },
-    "tower-game":{
-        image:"images/tower-game.png"
-    },
-    "image-resizer":{
-        image:"images/image-resizer.png"
-    }
+    
 }

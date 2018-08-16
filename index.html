@@ -39,17 +39,17 @@
       <v-content>
         <v-container >
           <v-toolbar fixed>
-            <a href="https://github.com/fraigo?tab=repositories" target="_blank" >
+            <a :href="userData.html_url" target="_blank" >
               <img src="images/github.png" height="48">
             </a>
             <v-toolbar-title style="line-height:1.2em">
-              Francisco Igor
+              {{userData.name}}
               <br>
               <small>GitHub Projects</small>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items >
-              <v-btn flat @click="hash='featured'; languageFilter=null">Featured<br>Projects</v-btn>
+              <v-btn flat v-if="featuredRepos.length" @click="hash='featured'; languageFilter=null">Featured<br>Projects</v-btn>
               <v-btn flat @click="hash='personal'; languageFilter=null">Personal<br>Projects</v-btn>
               <v-btn flat @click="hash='forked'; languageFilter=null">Forked<br>Projects</v-btn>
             </v-toolbar-items>
@@ -70,7 +70,7 @@
           </v-layout>
           <v-layout row wrap v-if="hash=='featured'">
             <gitcard
-            v-for="(repo,index) in repos"
+            v-for="(repo,index) in featuredRepos"
             v-if="languageFilter==null || languageFilter==repo.language"
             :key="index"
             :repo="repo"
@@ -79,7 +79,7 @@
           </v-layout>
           <v-layout row wrap  v-if="hash=='personal'">
               <gitcard
-              v-for="(repo,index) in allRepos"
+              v-for="(repo,index) in personalRepos"
               v-if="languageFilter==null || languageFilter==repo.language"
               :key="index"
               :repo="repo"
@@ -105,68 +105,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>  
   <script src="js/gitcard.js"></script>
   <script src="js/config.js"></script>
-  <script>
-    var app=new Vue({ 
-      el: '#app' ,
-      data:{
-        repos:[],
-        forked:[],
-        allRepos:[],
-        languages:[],
-        languageSection:{},
-        languageFilter:null,
-        hash:'featured',
-        user:myUser
-      },
-      created: function(){
-        document.getElementById("app").style.display='';
-        this.$http.get('https://api.github.com/users/'+myUser+'/repos?sort=updated&per_page=100').then(function(response) {
-          var tmpRepos=response.data;
-          this.allRepos=[];
-          var languageCount={};
-          var languageSection={};
-          for(var index in response.data){
-            var repo=JSON.parse(JSON.stringify(response.data[index]));
-            var lang=repo.language?repo.language:"Not detected";
-            repo.language=lang;
-            if (!languageCount[lang]){
-              languageCount[lang]=0;
-              languageSection[lang]={};
-            }
-            languageCount[lang]++;
-            if (myRepos[repo.name]){
-              repo.image=myRepos[repo.name].image;
-              this.repos.push(repo);
-              languageSection[lang]["featured"]=true;
-            }
-            if (!repo.fork){
-              this.allRepos.push(repo);
-              languageSection[lang]["personal"]=true;
-            }else{
-              this.forked.push(repo);
-              languageSection[lang]["forked"]=true;
-            }
-          }
-          this.languages=Object.keys(languageCount);
-          this.languages.sort(function(a,b){
-            if (languageCount[a]>languageCount[b]){
-              return -1;
-            }
-            if (languageCount[a]<languageCount[b]){
-              return 1;
-            }
-            return 0;
-          });
-          this.languageSection=languageSection;
-        })
-      },
-      methods: {
-      }
-    })
-    window.onhashchange=function(ev){
-      var hash=document.location.hash;
-      console.log(hash);
-    }
-  </script>
+  <script src="js/app.js" ></script>
 </body>
 </html>

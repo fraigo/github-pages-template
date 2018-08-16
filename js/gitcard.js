@@ -1,4 +1,9 @@
-
+/**
+ * gitcard HTML component
+ * 
+ * Shows info about a Git repo using the JSON properties (repo)
+ * Also, it can show an image URLabout the project (image)
+ */
 Vue.component("gitcard",{
     props:[
         "repo",
@@ -17,8 +22,10 @@ Vue.component("gitcard",{
         <div>
           <h3 class="headline mb-0">{{repo.name}}</h3>
           <div>
-            <i ><a :href="repo.html_url">{{repo.html_url}}</a></i>
-            <div style="height:50px;overflow:hidden">
+            <div style="height:36px;line-height:18px">
+              <i ><a :href="repo.html_url">{{repo.html_url}}</a></i>
+            </div>
+            <div style="height:54px;line-height:18px;overflow:hidden">
             {{repo.description}}
             </div>
             <div style="height:36px;overflow:hidden">

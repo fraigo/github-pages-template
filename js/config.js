@@ -9,7 +9,6 @@ if (!myUser){
 }
 var loc=document.location; 
 if (loc.search.length>2){
-    alert("user");
     myUser = loc.search.replace("?","");
 }
 var myRepos = 

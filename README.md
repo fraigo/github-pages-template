@@ -60,4 +60,13 @@ if (!myUser){
 }  
 ```
 
+### Web preview
+
+https://fraigo.github.io/github-pages-template/
+
+
+### Test this site with your user name
+
+https://fraigo.github.io/github-pages-template/?username
+
 

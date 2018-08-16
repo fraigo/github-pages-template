@@ -70,3 +70,23 @@ https://fraigo.github.io/github-pages-template/
 https://fraigo.github.io/github-pages-template/?username
 
 
+Examples:
+
+* https://fraigo.github.io/github-pages-template/?github
+
+* https://fraigo.github.io/github-pages-template/?google
+
+* https://fraigo.github.io/github-pages-template/?microsoft
+
+* https://fraigo.github.io/github-pages-template/?angular
+
+
+## Contributing
+
+Feel free to contribute to this project submitting bugs and new features.
+
+
+
+
+
+

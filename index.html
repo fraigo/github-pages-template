@@ -49,9 +49,9 @@
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items >
-              <v-btn flat v-if="featuredRepos.length" @click="hash='featured'; languageFilter=null">Featured<br>Projects</v-btn>
-              <v-btn flat @click="hash='personal'; languageFilter=null">Personal<br>Projects</v-btn>
-              <v-btn flat @click="hash='forked'; languageFilter=null">Forked<br>Projects</v-btn>
+              <v-btn flat v-if="featuredRepos.length" @click="hash='featuredRepos'; languageFilter=null">Featured<br>Projects</v-btn>
+              <v-btn flat @click="hash='personalRepos'; languageFilter=null">Personal<br>Projects</v-btn>
+              <v-btn flat @click="hash='forkedRepos'; languageFilter=null">Forked<br>Projects</v-btn>
             </v-toolbar-items>
           </v-toolbar>
           <v-layout row wrap>
@@ -68,7 +68,7 @@
             @click="languageFilter=lang"
              >{{lang}}</v-chip>
           </v-layout>
-          <v-layout row wrap v-if="hash=='featured'">
+          <v-layout row wrap v-if="hash=='featuredRepos'">
             <gitcard
             v-for="(repo,index) in featuredRepos"
             v-if="languageFilter==null || languageFilter==repo.language"
@@ -77,7 +77,7 @@
             >
             </gitcard>
           </v-layout>
-          <v-layout row wrap  v-if="hash=='personal'">
+          <v-layout row wrap  v-if="hash=='personalRepos'">
               <gitcard
               v-for="(repo,index) in personalRepos"
               v-if="languageFilter==null || languageFilter==repo.language"
@@ -86,9 +86,9 @@
               >
               </gitcard>
             </v-layout>
-          <v-layout row wrap  v-if="hash=='forked'">
+          <v-layout row wrap  v-if="hash=='forkedRepos'">
               <gitcard
-              v-for="(repo,index) in forked"
+              v-for="(repo,index) in forkedRepos"
               v-if="languageFilter==null || languageFilter==repo.language"
               :key="index"
               :repo="repo"

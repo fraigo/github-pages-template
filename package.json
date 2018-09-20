@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/fraigo/github-pages-template#readme",
   "dependencies": {
-    "template-writer": "^1.0.3"
+    "template-writer": "^1.0.4"
   }
 }

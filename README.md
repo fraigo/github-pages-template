@@ -22,13 +22,13 @@ Now you have an automatically generated Github Page
 
 ## Configuration
 
-You can add some extra configuration in the file `js/config.js` 
+You can add some extra configuration in the file `./config.js` 
 
 ### Featured repositories
 
 You can add some featured repositories following this steps:
 
-* Edit the file `js/config.js`, adding a github project name, and uploading a screenshot to the `images/` folder.
+* Edit the file `./featured.js`, adding a github project name, and uploading a screenshot to the `images/` folder.
 
 ```
 'my-repository-name' : {

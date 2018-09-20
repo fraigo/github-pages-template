@@ -4,7 +4,7 @@
   "description": "Github Pages Template (Vue.js)",
   "main": "index.js",
   "scripts": {
-    "build": "node ./index.js",
+    "build": "node ./github-pages/index.js",
     "local": "http-server ./"
   },
   "repository": {

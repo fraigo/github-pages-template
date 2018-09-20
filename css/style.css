@@ -1,8 +1,16 @@
 main {
   background-color: #CCF; 
-  margin-top: 50px;
 }
 
 .card__media__background{
   background-position: top center !important;
+}
+
+.header{
+  background-color: white;
+  font-size:1.2rem;
+}
+
+@media (max-width:480px){
+
 }

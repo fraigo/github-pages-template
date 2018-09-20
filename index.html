@@ -53,9 +53,9 @@
               </v-layout>
             </v-flex>
             <v-flex py-2 xs-12 text-xs-center text-sm-right>
-              <v-btn flat v-if="featuredRepos.length" @click="hash='featuredRepos'; languageFilter=null">Featured<br>Projects</v-btn>
-              <v-btn flat @click="hash='personalRepos'; languageFilter=null">Personal<br>Projects</v-btn>
-              <v-btn flat @click="hash='forkedRepos'; languageFilter=null">Forked<br>Projects</v-btn>
+              <v-btn flat large class="px-1" v-if="featuredRepos.length" @click="hash='featuredRepos'; languageFilter=null">Featured<br>Projects</v-btn>
+              <v-btn flat large class="px-1" @click="hash='personalRepos'; languageFilter=null">Personal<br>Projects</v-btn>
+              <v-btn flat large class="px-1" @click="hash='forkedRepos'; languageFilter=null">Forked<br>Projects</v-btn>
             </v-flex>
           </v-layout>
           <v-container >

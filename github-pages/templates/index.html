@@ -37,23 +37,28 @@
   <div id="app" style="display:none">
     <v-app>
       <v-content>
-        <v-container >
-          <v-toolbar fixed>
-            <a :href="userData.html_url" target="_blank" >
-              <img src="images/github.png" height="48">
-            </a>
-            <v-toolbar-title style="line-height:1.2em">
-              {{userData.name}}
-              <br>
-              <small>GitHub Projects</small>
-            </v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-toolbar-items >
+          <v-layout row wrap fixed class="header">
+            <v-flex  px-2 py-2 xs-12 >
+              <v-layout row align-xs-center justify-xs-center>
+                <div class="px-2" >
+                  <a :href="userData.html_url" target="_blank" >
+                    <img src="images/github.png" height="48">
+                  </a>
+                </div>
+                <div >
+                  {{userData.name}}
+                  <br>
+                  <small>GitHub Projects</small>
+                </div>
+              </v-layout>
+            </v-flex>
+            <v-flex py-2 xs-12 text-xs-center text-sm-right>
               <v-btn flat v-if="featuredRepos.length" @click="hash='featuredRepos'; languageFilter=null">Featured<br>Projects</v-btn>
               <v-btn flat @click="hash='personalRepos'; languageFilter=null">Personal<br>Projects</v-btn>
               <v-btn flat @click="hash='forkedRepos'; languageFilter=null">Forked<br>Projects</v-btn>
-            </v-toolbar-items>
-          </v-toolbar>
+            </v-flex>
+          </v-layout>
+          <v-container >
           <v-layout row wrap>
             <v-chip small 
             color="white"

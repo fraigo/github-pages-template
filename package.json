@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./github-pages/index.js",
-    "local": "http-server ./"
+    "local": "npm run build && http-server ./"
   },
   "repository": {
     "type": "git",

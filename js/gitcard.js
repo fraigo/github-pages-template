@@ -37,14 +37,23 @@ Vue.component("gitcard",{
       </v-card-title>
       <v-card-actions>
         <v-btn flat color="blue" @click="openPage(repo.html_url)">GitHub Repo</v-btn>
-        <v-btn flat color="orange" v-if="repo.has_pages" @click="openPage(getPage(repo.name))" >Demo / Preview</v-btn>
+        <v-btn flat color="orange" v-if="hasPage(repo)" @click="openPage(getPage(repo))" >Demo / Preview</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
     `,
     methods: {
-      getPage: function(name){
-        return "https://fraigo.github.io/"+name+"/";
+      hasPage:  function(repo){
+        return repo.has_pages || repo.homepage;
+      },
+      getPage: function(repo){
+        if (repo.has_pages){
+          return "https://fraigo.github.io/"+repo.name+"/";
+        }else{
+          return repo.homepage;
+        }
+        
+
       },
       openPage: function(name){
         window.open(name, "_blank");

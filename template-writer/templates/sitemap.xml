@@ -1,17 +1,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>
-    http://${username}.github.io/github-pages-template/
+    http://${user}.github.io/
     </loc>
     <changefreq>weekly</changefreq>
     <lastmod>$(date)</lastmod>
     <priority>1.0</priority>
     <image:image>
     <image:loc>
-    https://${username}.github.io/github-pages-template/images/github.png
+    https://${user}.github.io/images/github.png
     </image:loc>
-    <image:caption>${Username} GitHub Pages by Francisco Igor</image:caption>
-    <image:title>${Username} GitHub Pages by Francisco Igor</image:title>
+    <image:caption>${User} GitHub Pages </image:caption>
+    <image:title>${Name} GitHub Pages </image:title>
     </image:image>
   </url>
 </urlset>

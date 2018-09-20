@@ -3,19 +3,19 @@
 <head>
   <!-- Page title -->
   <title>GitHub Projects Page</title>
-  <meta name="keywords" content="Francisco Igor, GitHub Pages, Web applications, HTML5, VueJS, AngularJS"/>
-  <meta name="description" content="Francisco Igor GitHub Projects page"/>
+  <meta name="keywords" content="${Name}, GitHub Pages, Web applications, HTML5, VueJS, AngularJS"/>
+  <meta name="description" content="${Name} GitHub Projects page"/>
 
   <!-- Facebook OpenGraph  Social media attributes -->
   <meta property="og:title" content="GitHub Projects Page"/>
-  <meta property="og:description" content="Francisco Igor GitHub Projects Page to showcase Github projects"/>
+  <meta property="og:description" content="${Name} GitHub Projects Page to showcase Github projects"/>
   <meta property="og:site_name" content="GitHub Projects Page"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://fraigo.github.io/"/>
-  <link rel="canonical" href="https://fraigo.github.io/" />
+  <meta property="og:url" content="https://${user}.github.io/"/>
+  <link rel="canonical" href="https://${user}.github.io/" />
 
   <!-- Facebook OpenGraph  Social media image link url and size (must be http, not https) -->
-  <meta property="og:image" content="http://fraigo.github.io/images/github.png"/>
+  <meta property="og:image" content="http://${user}.github.io/images/github.png"/>
   <meta property="og:image:width" content="256"/>
   <meta property="og:image:height" content="256"/>
   <meta property="og:locale" content="en_US" />
@@ -27,7 +27,7 @@
 
 
   <script type="application/ld+json">
-  {"name":"GitHub Projects Page","description":"User GitHub Projects Page to showcase Github projects","author":"Francisco Igor","@type":"WebSite","url":"https://fraigo.github.io/","image":null,"publisher":null,"headline":"GitHub Projects Page","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+  {"name":"GitHub Projects Page","description":"User GitHub Projects Page to showcase Github projects","author":"Francisco Igor","@type":"WebSite","url":"https://${user}.github.io/","image":null,"publisher":null,"headline":"GitHub Projects Page","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
   <link rel="stylesheet" href="css/style.css" >
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
@@ -100,14 +100,13 @@
     </v-app>
   </div>
  
-  <script src="js/lib/vue.js"></script>
   <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
   <script src="https://unpkg.com/vuetify/dist/vuetify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>  
   <script >
     config = {
-      user: "fraigo",
-      name: "Francisco Igor"
+      user: "${user}",
+      name: "${Name}"
     }
   </script>
   <script src="featured.js"></script>

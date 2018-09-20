@@ -7,14 +7,14 @@
 Vue.component("gitcard",{
     props:[
         "repo",
-        "image"
+        "textonly"
     ],
     template:`
   <v-flex xs12 sm6 px-2 mt-2>
    
     <v-card>
       <v-card-media 
-        v-if="repo.image"
+        v-if="repo.image && !textonly"
         style="background-position: top center"
         :src="repo.image" height="120px">
       </v-card-media>
@@ -23,7 +23,7 @@ Vue.component("gitcard",{
           <h3 class="headline mb-0">{{repo.name}}</h3>
           <div>
             <div style="height:36px;line-height:18px">
-              <i ><a :href="repo.html_url">{{repo.html_url}}</a></i>
+              <i ><a target="_blank" :href="repo.html_url">{{repo.html_url}}</a></i>
             </div>
             <div style="height:54px;line-height:18px;overflow:hidden">
             {{repo.description}}

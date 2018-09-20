@@ -1,0 +1,28 @@
+{
+  "name": "github-pages-template",
+  "version": "1.0.0",
+  "description": "Github Pages Template (Vue.js)",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./index.js",
+    "local": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fraigo/github-pages-template.git"
+  },
+  "keywords": [
+    "Github",
+    "Pages",
+    "Template"
+  ],
+  "author": "Francisco Igor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fraigo/github-pages-template/issues"
+  },
+  "homepage": "https://github.com/fraigo/github-pages-template#readme",
+  "dependencies": {
+    "template-writer": "^1.0.3"
+  }
+}

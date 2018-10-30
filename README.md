@@ -22,7 +22,14 @@ Now you have an automatically generated Github Page
 
 ## Configuration
 
-You can add some extra configuration in the file `./config.js` 
+You can add some specific configuration in the file `./config.js` 
+
+```javascript
+module.exports = {
+  user: "",
+  name: ""
+}
+```
 
 ### Featured repositories
 

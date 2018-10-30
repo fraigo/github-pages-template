@@ -86,6 +86,7 @@
               <gitcard
               v-for="(repo,index) in personalRepos"
               v-if="languageFilter==null || languageFilter==repo.language"
+              :textonly="true"
               :key="index"
               :repo="repo"
               >
@@ -95,6 +96,7 @@
               <gitcard
               v-for="(repo,index) in forkedRepos"
               v-if="languageFilter==null || languageFilter==repo.language"
+              :textonly="true"
               :key="index"
               :repo="repo"
               >

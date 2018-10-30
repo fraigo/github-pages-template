@@ -13,13 +13,34 @@ module.exports = function(githubUser,githubName){
     "date": (new Date()).toISOString
   }
 
-  var config = {
-    baseDir: path.resolve(__dirname, "../"),
-    templateDir: 'github-pages/templates',
-    targetDir: '.'
+  var templateOptions = {
+    templateDir:'./templates',
+    targetDir:'../', //parent folder
+    baseDir:__dirname
   }
-  
-  templateWriter("index.html",data,config);
-  templateWriter("sitemap.xml",data,config);
+
+  var index = {
+    name: 'index.html',
+    target:'index.html',
+    vars: data,
+    replacements: {}
+  }
+
+  templateWriter(
+    index,
+    templateOptions
+  );
+
+  var sitemap = {
+    name: 'sitemap.xml',
+    target:'sitemap.xml',
+    vars: data,
+    replacements: {}
+  }
+
+  templateWriter(
+    sitemap,
+    templateOptions
+  );
   
 }

@@ -3,12 +3,12 @@
 <head>
   <!-- Page title -->
   <title>GitHub Projects Page</title>
-  <meta name="keywords" content="Francisco Igor, GitHub Pages, Web applications, HTML5, VueJS, AngularJS"/>
-  <meta name="description" content="Francisco Igor GitHub Projects page"/>
+  <meta name="keywords" content="User, GitHub Pages, Web applications, HTML5, VueJS, AngularJS"/>
+  <meta name="description" content="User GitHub Projects page"/>
 
   <!-- Facebook OpenGraph  Social media attributes -->
   <meta property="og:title" content="GitHub Projects Page"/>
-  <meta property="og:description" content="Francisco Igor GitHub Projects Page to showcase Github projects"/>
+  <meta property="og:description" content="User GitHub Projects Page to showcase Github projects"/>
   <meta property="og:site_name" content="GitHub Projects Page"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://fraigo.github.io/"/>
@@ -86,6 +86,7 @@
               <gitcard
               v-for="(repo,index) in personalRepos"
               v-if="languageFilter==null || languageFilter==repo.language"
+              :textonly="true"
               :key="index"
               :repo="repo"
               >
@@ -95,6 +96,7 @@
               <gitcard
               v-for="(repo,index) in forkedRepos"
               v-if="languageFilter==null || languageFilter==repo.language"
+              :textonly="true"
               :key="index"
               :repo="repo"
               >
@@ -110,8 +112,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>  
   <script >
     config = {
-      user: "fraigo",
-      name: "Francisco Igor"
+      user: "",
+      name: "User"
     }
   </script>
   <script src="featured.js"></script>

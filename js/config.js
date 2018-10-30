@@ -1,5 +1,5 @@
 var myUser;
-if (window.config && config.user){
+if (window.config && config.user && config.user!= ""){
     myUser = config.user;
 }
 

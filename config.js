@@ -1,4 +1,4 @@
 module.exports = {
   user: "fraigo",
-  name: "Francisco Igor"
+  name: "User"
 }

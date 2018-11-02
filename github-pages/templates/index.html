@@ -27,7 +27,22 @@
 
 
   <script type="application/ld+json">
-  {"name":"GitHub Projects Page","description":"User GitHub Projects Page to showcase Github projects","author":"Francisco Igor","@type":"WebSite","url":"https://${user}.github.io/","image":null,"publisher":null,"headline":"GitHub Projects Page","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+    { 
+      "name":"GitHub Projects Page",
+      "description":"${Name} GitHub Projects Page to showcase Github projects",
+      "author":"${Name}",
+      "@type":"WebSite",
+      "url":"https://${user}.github.io/",
+      "publisher":"${Name}",
+      "headline":"${Name} GitHub Projects Page",
+      "dateModified":"${date}",
+      "datePublished":"${date}",
+      "sameAs":null,
+      "@context":"http://schema.org",
+      "image": [
+        "images/github.png"
+      ]
+    }</script>
   <link rel="stylesheet" href="css/style.css" >
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">

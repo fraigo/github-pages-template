@@ -10,7 +10,7 @@ module.exports = function(githubUser,githubName){
   var data={
     "user": githubUser,
     "Name": githubName,
-    "date": (new Date()).toISOString
+    "date": (new Date()).toISOString()
   }
 
   var templateOptions = {

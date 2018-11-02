@@ -11,13 +11,12 @@ Vue.component("gitcard",{
     ],
     template:`
   <v-flex xs12 sm6 px-2 mt-2>
-   
     <v-card>
-      <v-card-media 
+      <v-img 
         v-if="repo.image && !textonly"
-        style="background-position: top center"
-        :src="repo.image" height="120px">
-      </v-card-media>
+        class="card-image"
+        :src="repo.image" height="140px">
+      </v-img>
       <v-card-title primary-title>
         <v-layout column >
           <h3 class="headline mb-0" style="white-space:nowrap;overflow:hidden">{{repo.name}}</h3>

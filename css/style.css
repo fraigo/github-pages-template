@@ -2,7 +2,7 @@ main {
   background-color: #CCF; 
 }
 
-.card__media__background{
+.card__media__background, .v-image__image--cover {
   background-position: top center !important;
 }
 

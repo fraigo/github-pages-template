@@ -4,7 +4,7 @@ Template for a Github Pages web site using GitHub API
 ## Usage
 
 * **Fork** this project in your Github account
-  * https://github.com/iswdev/github-pages-template/fork
+  * https://github.com/fraigo/github-pages-template/fork
 * **Activate Github pages** in the Github repository settings
   * Using your USERNAME
   * Go to https://github.com/USERNAME/github-pages-template/settings

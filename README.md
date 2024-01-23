@@ -90,7 +90,7 @@ Examples:
 
 ## Contributing
 
-Feel free to contribute to this project submitting bugs and new features.
+Feel free to contribute to this project submitting bugfixes and new features.
 
 
 
